@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Deploy
-        uses: jakejarvis/s3-sync-action@be0c4ab89158cac4278689ebedd8407dd5f35a83
+        uses: jakejarvis/s3-sync-action@ad7d821d6bdc6b6c7db0393546e17ea7b94b4dbc
         with:
           args: "--exclude index.html --metadata-directive REPLACE --cache-control max-age=86400,public"
         env:
@@ -31,7 +31,7 @@ jobs:
           AWS_REGION: 'us-east-1'
           SOURCE_DIR: 'build'
       - name: Deploy index.html
-        uses: jakejarvis/s3-sync-action@be0c4ab89158cac4278689ebedd8407dd5f35a83
+        uses: jakejarvis/s3-sync-action@ad7d821d6bdc6b6c7db0393546e17ea7b94b4dbc
         with:
           args: "--include index.html --metadata-directive REPLACE --cache-control max-age=0,must-revalidate"
         env:
